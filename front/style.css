@@ -1,0 +1,52 @@
+body{
+    background-color: snow;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}header{
+    width: 100vw;
+    height:50vh;
+    margin:0;
+    background-image: url('./resources/img1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}nav{
+    width:100vw;
+    height:7vh;
+    margin:0;
+    background-color: snow;
+}a{
+    margin: 10px 5px;
+    padding: 10px 5px;
+    float:left;
+    font: normal 1rem verdana;
+    text-decoration: none;
+    color:black;
+    border-radius:5px;
+    transition: 0.3s;
+}a:hover{
+    background-color: black;
+    color:white;
+    transition: 0.3s;
+}h1{
+    font: bold 3rem verdana;
+    color:white; 
+    margin: 150px auto;
+}main{
+    width:100vw;
+    height:200vh;
+    background-color: snow;
+}footer{
+    width:100vw;
+    height:20vh;
+    background-color: rgb(151, 147, 147);
+}
+
+/* IDs */
+
+#fade{
+    height:50px;
+    background-image: linear-gradient(rgb(151, 147, 147), snow);
+}
