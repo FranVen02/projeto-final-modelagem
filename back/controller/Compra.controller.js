@@ -76,5 +76,8 @@ const atualizar = async (req, res) =>{
     }
 }
 
+const consultar = async (req, res) =>{
+    
+}
 
-module.exports = { cadastrar, listar, apagar, atualizar }
+module.exports = { cadastrar, listar, apagar, atualizar, consultar }

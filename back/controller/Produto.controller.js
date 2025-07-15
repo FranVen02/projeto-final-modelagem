@@ -76,13 +76,10 @@ const atualizar = async (req, res) =>{
     }
 }
 
-// const buscarNome = async (req, res) =>{
-// }
-
-// const busacarId = async (req, res) =>{
-// }
+const consultar = async (req, res) =>{
+    
+}
 
 
-
-module.exports = { cadastrar, listar, apagar, atualizar }
+module.exports = { cadastrar, listar, apagar, atualizar, consultar }
 

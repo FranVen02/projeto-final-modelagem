@@ -4,6 +4,8 @@ const cors = require('cors')
 const conn = require('./db/conn')
 const app = express()
 
+require('dotenv').config()
+
 const compraController = require('./controller/Compra.controller')
 const produtoController = require('./controller/Produto.controller')
 const usuarioController = require('./controller/Usuario.controller')
@@ -28,15 +30,13 @@ app.post('/produto', produtoController.cadastrar)
 app.get('/produto', produtoController.listar)
 app.delete('/produto/:id', produtoController.apagar)
 app.put('/produto/:id', produtoController.atualizar)
-// app.get('/produto', produtoController.buscarNome)
-// app.get('/produto/:id', produtoController.buscarId)
+app.get('/produto/:id', produtoController.consultar)
 
 app.post('/usuario', usuarioController.cadastrar)
 app.get('/usuario', usuarioController.listar)
 app.delete('/usuario/:id', usuarioController.apagar)
 app.put('/usuario/:id', usuarioController.atualizar)
-// app.get('/usuario', usuarioController.buscarNome)
-// app.get('/usuario/:id', usuarioController.buscarId)
+app.get('/usuario/:id', usuarioController.consultar)
 
 app.get('/', async (res) =>{
 
