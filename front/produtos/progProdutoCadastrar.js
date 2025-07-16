@@ -1,0 +1,106 @@
+let res = document.getElementById("res")
+let btnCadastrarLote = document.getElementById('btnCadastrarLote')
+let btnCadastrar = document.getElementById('btnCadastrar')
+
+btnCadastrarLote.addEventListener("click", (e)=>{
+    e.preventDefault()
+
+    fetch("https://dummyjson.com/products", {
+        method: "GET",
+        headers: { 
+            "content-Type":"application/json" 
+        }
+    })
+    .then(resp => resp.json())
+    .then(dados=> {
+        dados.products.forEach(dad => {
+
+            console.log(dad)
+            const valores = {
+                title: dad.title,
+                description: dad.description,
+                category: dad.category,
+                price: dad.price,
+                discountPercentage: dad.discountPercentage,
+                stock: dad.stock,
+                brand: dad.brand,
+                thumbnail: dad.thumbnail
+            }
+
+            fetch("http://localhost:3000/produto", {
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify(valores)
+            })
+            .then(resp => resp.body)
+            .then(()=>{
+                res.innerHTML = "Lote registrado com sucesso."
+                console.log('Lote registrado com sucesso.')
+            })
+        })
+    })
+    .catch((err)=>{
+        console.error("Erro no registro do lote: ", err)
+    })
+})
+btnCadastrar.addEventListener("click", (e)=>{
+    e.preventDefault()
+
+    let title = document.getElementById("title").value
+    let description = document.getElementById("description").value
+    let category = document.getElementById("category").value
+    let price = document.getElementById("price").value
+    let discountPercentage = document.getElementById("discountPercentage").value
+    let precoFinal = price - (price * (discountPercentage / 100)) 
+    let stock = document.getElementById("stock").value
+    let brand = document.getElementById("brand").value
+    let thumbnail = document.getElementById("thumbnail").value
+
+    const valores = {
+        title: title,
+        description: description,
+        category: category,
+        price: price,
+        discountPercentage: discountPercentage,
+        stock: stock,
+        brand: brand,
+        thumbnail: thumbnail
+    }
+    fetch("http://localhost:3000/produto", {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(valores)
+    })
+    .then(resp => resp.body)
+    .then(() =>{
+        res.innerHTML = 
+                <table border="1" cellpadding="8">
+            <tr>
+                <td>${title}</td>
+                <td>${description}</td>
+                <td>${category}</td>
+                <td>${price}</td>
+                <td>${discountPercentage}</td>
+                <td>${precoFinal}</td>
+                <td>${stock}</td>
+                <td>${brand}</td>
+                <td><img src="${thumbnail}"></td>
+            </tr>
+            <tr>
+                <td>${title}</td>
+                <td>${description}</td>
+                <td>${category}</td>
+                <td>${price}</td>
+                <td>${discountPercentage}</td>
+                <td>${precoFinal}</td>
+                <td>${stock}</td>
+                <td>${brand}</td>
+                <td><img src="${thumbnail}"></td>
+            </tr>
+        </table>
+    })
+})

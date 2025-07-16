@@ -14,7 +14,7 @@ body{
     text-align: center;
 }nav{
     width:100vw;
-    height:7vh;
+    height:60px;
     margin:0;
     background-color: snow;
 }nav a{
@@ -33,11 +33,28 @@ body{
 }h1{
     font: bold 3rem verdana;
     color:white; 
-    margin: 150px auto;
+    margin: 15vh auto;
 }main{
     width:100vw;
     height:200vh;
     background-color: snow;
+}input{
+    background-color: black;
+    border: solid 1px rgb(153, 153, 153);
+    border-radius: 5px;
+    width:200px;
+    color:white
+}button{
+    background-color: black;
+    font: normal 1rem verdana;
+    border: solid 1px rgb(153, 153, 153);
+    border-radius: 5px;
+    color:white;
+    height:50px;
+    width:100px;
+    margin: 20px 0 0 20px
+}label{
+    font: normal 1rem verdana
 }footer{
     width:100vw;
     height:20vh;
@@ -49,6 +66,12 @@ body{
 #fade{
     height:50px;
     background-image: linear-gradient(rgb(151, 147, 147), snow);
+}#res{
+    background-color: black;
+    width:60vw;
+    height: 30vh;
+    float:right;
+    margin: 1vh 5vw 0 0;
 }
 
 /* Classes */
@@ -57,7 +80,7 @@ body{
     background-color: rgb(214, 214, 198);
     text-align:center;
     margin:.9vw;
-    width:23vw;
+    width:18vw;
     height:18vw;
     border-radius: 10px;
     float:left;
@@ -74,4 +97,9 @@ body{
     background-color: black;
     color:white;
     transition: 0.3s;
+}.container{
+    margin:10px;
+    width:200px;
+    height: fit-content;
+    float:left;
 }

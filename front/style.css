@@ -14,7 +14,7 @@ body{
     text-align: center;
 }nav{
     width:100vw;
-    height:7vh;
+    height:60px;
     margin:0;
     background-color: snow;
 }a{
@@ -33,7 +33,7 @@ body{
 }h1{
     font: bold 3rem verdana;
     color:white; 
-    margin: 150px auto;
+    margin: 15vh auto;
 }main{
     width:100vw;
     height:200vh;
