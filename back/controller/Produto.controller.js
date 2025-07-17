@@ -15,7 +15,7 @@ const cadastrar = async (req, res) =>{
     }
 }
 
-const listar = async (res) =>{
+const listar = async (req, res) =>{
 
     try{
 
@@ -34,7 +34,7 @@ const apagar = async (req, res) =>{
 
     try{
 
-        const dados = await Produto.findByPk(codUser)
+        const dados = await Produto.findByPk(codProd)
         if(dados){
 
             await Produto.destroy({where: {codProd: codProd}})
@@ -76,10 +76,25 @@ const atualizar = async (req, res) =>{
     }
 }
 
-const consultar = async (req, res) =>{
-    
-}
+const consultar = async (req, res) => {
 
+    const codProd = req.params.id
+    try{
+
+        const produto = await Produto.findByPk(codProd)
+        if(produto){
+
+            res.status(200).json(produto)
+        }else{
+
+            res.status(404).json({ message: 'Compra com o ID ' + codProd + ' não encontrada.' })
+        }
+    }catch(err){
+
+        console.error('Erro ao buscar o produto!', err)
+        res.status(500).json({message: 'Erro ao buscar o produto!', err})
+    }
+}
 
 module.exports = { cadastrar, listar, apagar, atualizar, consultar }
 

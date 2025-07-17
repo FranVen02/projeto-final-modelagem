@@ -1,10 +1,10 @@
 const express = require('express')
 const cors = require('cors')
 
+require('dotenv').config()
+
 const conn = require('./db/conn')
 const app = express()
-
-require('dotenv').config()
 
 const compraController = require('./controller/Compra.controller')
 const produtoController = require('./controller/Produto.controller')

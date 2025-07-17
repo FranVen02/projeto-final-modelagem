@@ -14,7 +14,7 @@ const Produto = db.define('produto', {
     },
     description: {
         type: DataTypes.STRING(256),
-        allowNull: false
+        allowNull: true
     },
     category: {
         type: DataTypes.STRING(30),
@@ -25,7 +25,7 @@ const Produto = db.define('produto', {
         allowNull: false
     },
     discountPercentage: {
-        type: DataTypes.STRING(5),
+        type: DataTypes.FLOAT,
         allowNull: true
     },
     stock: {
@@ -34,11 +34,11 @@ const Produto = db.define('produto', {
     },
     brand: {
         type: DataTypes.STRING(30),
-        allowNull:false
+        allowNull: true
     },
     thumbnail: {
-        type: DataTypes.STRING(60),
-        allowNull: false
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     timestamps: false,

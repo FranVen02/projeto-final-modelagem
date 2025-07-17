@@ -76,9 +76,26 @@ const atualizar = async (req, res) =>{
     }
 }
 
-const consultar = async (req, res) =>{
-    
+const consultar = async (req, res) => {
+
+    const codUser = req.params.id
+    try{
+
+        const produto = await Produto.findByPk(codUser)
+        if(produto){
+
+            res.status(200).json(produto)
+        }else{
+
+            res.status(404).json({ message: 'Compra com o ID ' + codUser + ' não encontrada.' })
+        }
+    }catch(err){
+
+        console.error('Erro ao buscar o produto!', err)
+        res.status(500).json({message: 'Erro ao buscar o produto!', err})
+    }
 }
+
 
 
 
