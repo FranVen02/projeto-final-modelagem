@@ -67,7 +67,6 @@ body{
     height:50px;
     background-image: linear-gradient(rgb(151, 147, 147), snow);
 }#res{
-    background-color: black;
     width:60vw;
     height: 30vh;
     float:right;
@@ -79,7 +78,7 @@ body{
 .a-container{
     background-color: rgb(214, 214, 198);
     text-align:center;
-    margin:.9vw;
+    margin:0 3.3vw;
     width:18vw;
     height:18vw;
     border-radius: 10px;
@@ -99,7 +98,7 @@ body{
     transition: 0.3s;
 }.container{
     margin:10px;
-    width:200px;
+    width:20vw;
     height: fit-content;
     float:left;
 }
