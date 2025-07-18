@@ -67,7 +67,6 @@ body{
     height:50px;
     background-image: linear-gradient(rgb(151, 147, 147), snow);
 }#res{
-    background-color: black;
     width:60vw;
     height: 30vh;
     float:right;

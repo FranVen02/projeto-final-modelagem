@@ -58,12 +58,10 @@ const atualizar = async (req, res) =>{
 
     try{
 
-        const dados = await Produto.findByPk(codProd)
+        let dados = await Produto.findByPk(codProd)
         if(dados){
-
             await Produto.update(valores, {where: {codProd: codProd}})
-            dados = await Produto.findByPk(codProd)
-            res.status(200).json({message: 'Dados atualizados com sucesso.', dados})
+            res.status(200).json({message: 'Dados atualizados com sucesso.', valores})
         }else{
 
             res.status(404).json({message: 'Dados não encontrados.'})

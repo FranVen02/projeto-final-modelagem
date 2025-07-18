@@ -1,11 +1,12 @@
 const Compra = require('../model/Compra')
 
 const cadastrar = async (req, res) =>{
-
+    
     const valores = req.body
+    
     try{
 
-        const dados = await Compra.create(valores)
+        let dados = await Compra.create(valores)
         console.log('Cadastro realizado com sucesso!')
         res.status(200).json(dados)
     }catch(err){
@@ -15,7 +16,7 @@ const cadastrar = async (req, res) =>{
     }
 }
 
-const listar = async (res) =>{
+const listar = async (req, res) =>{
 
     try{
 
@@ -30,14 +31,14 @@ const listar = async (res) =>{
 
 const apagar = async (req, res) =>{
 
-    const codProd = req.params.id
+    const codSell = req.params.id
 
     try{
 
-        const dados = await Compra.findByPk(codUser)
+        let dados = await Compra.findByPk(codSell)
         if(dados){
 
-            await Compra.destroy({where: {codProd: codProd}})
+            await Compra.destroy({where: {codSell: codSell}})
             res.status(204).json({message: 'Dados excluídos com sucesso.'})
         }else{
 
@@ -53,16 +54,15 @@ const apagar = async (req, res) =>{
 
 const atualizar = async (req, res) =>{
 
-    const codProd = req.params.id
+    const codSell = req.params.id
     const valores = req.body
 
     try{
 
-        const dados = await Compra.findByPk(codProd)
+        let dados = await Compra.findByPk(codSell)
         if(dados){
 
-            await Compra.update(valores, {where: {codProd: codProd}})
-            dados = await Compra.findByPk(codProd)
+            await Compra.update(valores, {where: {codSell: codSell}})
             res.status(200).json({message: 'Dados atualizados com sucesso.', dados})
         }else{
 
@@ -76,8 +76,4 @@ const atualizar = async (req, res) =>{
     }
 }
 
-const consultar = async (req, res) =>{
-    
-}
-
-module.exports = { cadastrar, listar, apagar, atualizar, consultar }
+module.exports = { cadastrar, listar, apagar, atualizar }

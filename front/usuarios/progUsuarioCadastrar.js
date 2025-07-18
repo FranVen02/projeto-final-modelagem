@@ -17,9 +17,10 @@ btnCadastrarLote.addEventListener("click", (e) => {
                     age: dad.age,
                     email: dad.email,
                     phone: dad.phone,
-                    city: dad.city,
-                    state: dad.state,
-                    birthDate: dad.birthDate
+                    birthDate: dad.birthDate,
+                    address: dad.address .address,
+                    state: dad.address.state,
+                    city: dad.address.city,
                 }
                 console.log("Valores: ", valores)
 
@@ -30,14 +31,14 @@ btnCadastrarLote.addEventListener("click", (e) => {
                     },
                     body: JSON.stringify(valores)
                 })
-                    .then(resp => resp.json())
-                    .then(() => {
-                        res.innerHTML = "Lote registrado com sucesso."
-                        console.log('Lote registrado com sucesso.')
-                    })
-                    .catch((err) => {
-                        console.error("Erro no registro do lote: ", err)
-                    })
+                .then(resp => resp.json())
+                .then(() => {
+                    res.innerHTML = "Lote registrado com sucesso."
+                    console.log('Lote registrado com sucesso.')
+                })
+                .catch((err) => {
+                    console.error("Erro no registro do lote: ", err)
+                })
             })
         })
         .catch((err) => {
@@ -66,7 +67,8 @@ btnCadastrar.addEventListener("click", (e) => {
         phone: phone,
         city: city,
         state: state,
-        birthDate: birthDate
+        birthDate: birthDate,
+        address: address,
     }
     fetch("http://localhost:3000/usuario", {
         method: "POST",
@@ -89,7 +91,7 @@ btnCadastrar.addEventListener("click", (e) => {
                 <td>${address}</td>
                 <td>${city}</td>
                 <td>${state}</td>
-                <td><img src="${birthDate}"></td>
+                <td>${birthDate}</td>
             </tr>
             </table>
         `

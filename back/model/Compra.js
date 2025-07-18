@@ -20,24 +20,20 @@ const Compra = db.define('compra', {
         type: DataTypes.FLOAT(10,2),
         allowNull: false
     },
-    applyDiscount: {
-        type: DataTypes.STRING(5),
+    appliedDiscount: {
+        type: DataTypes.INTEGER,
         allowNull: true
     },
     finalPrice: {
-        type: DataTypes.STRING(3),
+        type: DataTypes.FLOAT,
         allowNull: false
     },
     payment: {
         type: DataTypes.STRING(30),
         allowNull: false
     },
-    brand: {
-        type: DataTypes.STRING(30),
-        allowNull:false
-    },
-    thumbnail: {
-        type: DataTypes.STRING(60),
+    status:{
+        type: DataTypes.STRING(40),
         allowNull: false
     },
     usuario_id: {

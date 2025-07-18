@@ -15,7 +15,7 @@ const cadastrar = async (req, res) =>{
     }
 }
 
-const listar = async (res) =>{
+const listar = async (req, res) =>{
 
     try{
 
@@ -30,14 +30,14 @@ const listar = async (res) =>{
 
 const apagar = async (req, res) =>{
 
-    const codProd = req.params.id
+    const codUser = req.params.id
 
     try{
 
         const dados = await Usuario.findByPk(codUser)
         if(dados){
 
-            await Usuario.destroy({where: {codProd: codProd}})
+            await Usuario.destroy({where: {codUser : codUser}})
             res.status(204).json({message: 'Dados excluídos com sucesso.'})
         }else{
 
@@ -53,17 +53,16 @@ const apagar = async (req, res) =>{
 
 const atualizar = async (req, res) =>{
 
-    const codProd = req.params.id
-    const valores = req.body
+    let codUser = req.params.id
+    let valores = req.body
 
     try{
 
-        const dados = await Usuario.findByPk(codProd)
+        let dados = await Usuario.findByPk(codUser)
         if(dados){
 
-            await Usuario.update(valores, {where: {codProd: codProd}})
-            dados = await Usuario.findByPk(codProd)
-            res.status(200).json({message: 'Dados atualizados com sucesso.', dados})
+            await Usuario.update(valores, {where: {codUser: codUser}})
+            res.status(200).json(valores)
         }else{
 
             res.status(404).json({message: 'Dados não encontrados.'})

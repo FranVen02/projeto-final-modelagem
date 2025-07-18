@@ -29,44 +29,72 @@
 
             <div class="container">
 
-                <label for="amount">Digite o código de registro da compra: </label>
+                <label for="codSell">Digite o código de registro da compra: </label>
                 <br>
-                <input type="text" id="amount" placeholder="ex.: 100">
+                <input type="text" id="codSell" placeholder="código">
 
                 <br>
                 <br>
 
-                <label for="amount">Digite a quantidade de produtos comprados: </label>
+                <label for="usuario_id">Digite o código de registro do usuário: </label>
                 <br>
-                <input type="text" id="amount" placeholder="ex.: 100">
+                <input type="text" id="usuario_id" placeholder="código">
+
+                <br>
+                <br>
+
+                <label for="produto_id">Digite o código de registro do produto: </label>
+                <br>
+                <input type="text" id="produto_id" placeholder="código">
+
+                <br>
+                <br>
+
+                <label for="quantity">Digite a quantidade de produtos comprados: </label>
+                <br>
+                <input type="text" id="quantity" placeholder="ex.: 100">
+                
+                <br>
+    
+                <button type="submit" id="btnAtualizar">Atualizar</button>
+
+            </div>
+            <div class="container">
+                
+                <label for="unitPrice">Digite o preço de cada unidade comprada do produto: </label>
+                <br>
+                <input type="text" id="unitPrice" placeholder="ex.: 20.00">
 
                 <br>
                 <br>
                 
                 <label for="buyDate">Digite a data de compra (AAAA/MM/DD): </label>
                 <br>
-                <input type="text" id="buyDate" placeholder="ex.: 1999-12-31">
+                <input type="text" id="buyDate" placeholder="ex.: 1999/08/06">
 
-            </div>
-            <div class="container">
+                <br>
+                <br>
+                
+                <label for="appliedDiscount">Digite o desconto a ser aplicado: </label>
+                <br>
+                <input type="text" id="appliedDiscount" placeholder="ex.: 33.00">
+                
+                <br>
+                <br>
 
                 <label for="payment">Digite a forma de pagamento: </label>
                 <br>
                 <input type="text" id="payment" placeholder="ex.: Cartão de crédito">
-
+                
                 <br>
                 <br>
-
-                <label for="city">Digite o status da compra: </label>
+                
+                <label for="status">Digite o status da compra: </label>
                 <br>
-                <input type="text" id="city" placeholder="ex.: Comprado">
-
-                <button type="submit" id="btnCadastrar">Cadastrar</button>
+                <input type="text" id="status" placeholder="ex.: Comprado">
 
             </div>
-
         </form>
-
         <div id="res"></div>
 
     </main>

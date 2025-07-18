@@ -30,15 +30,15 @@ app.post('/produto', produtoController.cadastrar)
 app.get('/produto', produtoController.listar)
 app.delete('/produto/:id', produtoController.apagar)
 app.put('/produto/:id', produtoController.atualizar)
-app.get('/produto/:id', produtoController.consultar)
+app.get('/produto', produtoController.consultar)
 
 app.post('/usuario', usuarioController.cadastrar)
 app.get('/usuario', usuarioController.listar)
 app.delete('/usuario/:id', usuarioController.apagar)
 app.put('/usuario/:id', usuarioController.atualizar)
-app.get('/usuario/:id', usuarioController.consultar)
+app.get('/usuario', usuarioController.consultar)
 
-app.get('/', async (res) =>{
+app.get('/', (res) =>{
 
     res.status(200).json({message: 'Aplicação rodando!'})
 })
