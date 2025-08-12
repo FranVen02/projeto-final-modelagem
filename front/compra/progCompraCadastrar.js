@@ -1,5 +1,4 @@
 let res = document.getElementById('res')
-
 let btnCadastrar = document.getElementById('btnCadastrar')
 
 btnCadastrar.addEventListener('click', (e)=>{
@@ -36,20 +35,29 @@ btnCadastrar.addEventListener('click', (e)=>{
         },
         body: JSON.stringify(valores)
     })
+
     .then(resp => resp.json())
     .then(dados =>{
 
-        res.innerHTML += `A quantia é: ${dados.quantity} <br>`
-        res.innerHTML += `A data da compra é: ${dados.buyDate} <br>`
-        res.innerHTML += `O preço unitário é: ${dados.unitPrice} <br>`
-        res.innerHTML += `O desconto aplicado é: ${dados.appliedDiscount}% <br>`
-        res.innerHTML += `O preço final é: ${dados.finalPrice} <br>`
-        res.innerHTML += `A forma pagamento é: ${dados.payment} <br>`
-        res.innerHTML += `O status é: ${dados.status} <br>`
-        res.innerHTML += `O código do usuário é: ${dados.usuario_id} <br>`
-        res.innerHTML += `O código do produto é: ${dados.produto_id} <br>`
+        res.innerHTML =
+        `
+        <table border='1' cellpadding='8'>
+            <tr>
+                <td>${dados.quantity}</td>
+                <td>${dados.buyDate}</td>
+                <td>${dados.unitPrice}</td>
+                <td>${dados.appliedDiscount}</td>
+                <td>${dados.finalPrice}</td>
+                <td>${dados.payment}</td>
+                <td>${dados.status}</td>
+                <td>Chave de usuário: ${dados.usuario_id}</td>
+                <td>Chave de produto: ${dados.produto_id}</td>
+            </tr>
+        </table>
+        `
     })
     .catch((err)=>{
+
         console.error('Erro ao cadastrar a compra!',err)
     })
 })

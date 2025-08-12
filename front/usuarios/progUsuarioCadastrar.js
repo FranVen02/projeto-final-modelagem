@@ -80,20 +80,20 @@ btnCadastrar.addEventListener("click", (e) => {
         .then(resp => resp.body)
         .then(() => {
             res.innerHTML =
-                `
-                <table border="1" cellpadding="8">
-            <tr>
-                <td>${firstName}</td>
-                <td>${lastName}</td>
-                <td>${age}</td>
-                <td>${email}</td>
-                <td>${phone}</td>
-                <td>${address}</td>
-                <td>${city}</td>
-                <td>${state}</td>
-                <td>${birthDate}</td>
-            </tr>
+            `
+            <table border="1" cellpadding="8">
+                <tr>
+                    <td>${firstName}</td>
+                    <td>${lastName}</td>
+                    <td>${age}</td>
+                    <td>${email}</td>
+                    <td>${phone}</td>
+                    <td>${address}</td>
+                    <td>${city}</td>
+                    <td>${state}</td>
+                    <td>${birthDate}</td>
+                </tr>
             </table>
-        `
+            `
         })
 })

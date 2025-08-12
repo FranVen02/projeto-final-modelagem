@@ -78,20 +78,20 @@ btnCadastrar.addEventListener('click', (e) => {
         .then(resp => resp.body)
         .then(() => {
             res.innerHTML =
-                `
-                <table border='1' cellpadding='8'>
-            <tr>
-                <td>${title}</td>
-                <td>${description}</td>
-                <td>${category}</td>
-                <td>${price}</td>
-                <td>${discountPercentage}</td>
-                <td>${precoFinal}</td>
-                <td>${stock}</td>
-                <td>${brand}</td>
-                <td><img src='${thumbnail}'></td>
-            </tr>
+            `
+            <table border='1' cellpadding='8'>
+                <tr>
+                    <td>${title}</td>
+                    <td>${description}</td>
+                    <td>${category}</td>
+                    <td>${price}</td>
+                    <td>${discountPercentage}</td>
+                    <td>${precoFinal}</td>
+                    <td>${stock}</td>
+                    <td>${brand}</td>
+                    <td><img src='${thumbnail}'></td>
+                </tr>
             </table>
-        `
+            `
         })
 })
