@@ -3,11 +3,14 @@ const db = require('../db/conn')
 
 const Compra = db.define('compra', {
 
+    // Primary Key
     codSell: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
+
+    // Atributos gerais
     quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -36,20 +39,22 @@ const Compra = db.define('compra', {
         type: DataTypes.STRING(40),
         allowNull: false
     },
+
+    // Foreign Keys
     usuario_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'usuarios',
-            key: 'codUser'
+            model: 'usuarios', // Nome da tabela
+            key: 'codUser' // Nome da chave referenciada
         }
     },
     produto_id: {
         type: DataTypes.INTEGER,
         allowNull:false,
         references: {
-            model: 'produtos',
-            key: 'codProd'
+            model: 'produtos', // Nome da tabela
+            key: 'codProd' // Nome da chave referenciada
         }
     }
 }, {

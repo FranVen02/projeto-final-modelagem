@@ -36,9 +36,9 @@ app.post('/usuario', usuarioController.cadastrar)
 app.get('/usuario', usuarioController.listar)
 app.delete('/usuario/:id', usuarioController.apagar)
 app.put('/usuario/:id', usuarioController.atualizar)
-app.get('/usuario', usuarioController.consultar)
+app.get('/usuario/firstName/:firstName', usuarioController.consultarNome)
 
-app.get('/', (res) =>{
+app.get('/', (req, res) =>{
 
     res.status(200).json({message: 'Aplicação rodando!'})
 })

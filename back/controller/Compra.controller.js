@@ -63,7 +63,8 @@ const atualizar = async (req, res) =>{
         if(dados){
 
             await Compra.update(valores, {where: {codSell: codSell}})
-            res.status(200).json({message: 'Dados atualizados com sucesso.', dados})
+            console.log('Dados atualizados com sucesso:', dados)
+            res.status(200).json({message: 'Dados atualizados com sucesso:', dados})
         }else{
 
             res.status(404).json({message: 'Dados não encontrados.'})

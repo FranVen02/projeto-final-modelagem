@@ -75,28 +75,30 @@ const atualizar = async (req, res) =>{
     }
 }
 
-const consultar = async (req, res) => {
+const consultarNome = async (req, res) =>{
 
-    const codUser = req.params.id
+    const firstName = req.params.firstName
     try{
 
-        const produto = await Produto.findByPk(codUser)
-        if(produto){
+        const dados = await Usuario.findOne({where: {firstName: firstName}})
+        if(dados){
 
-            res.status(200).json(produto)
+            console.log('Usuário não encontrado.')
+            res.status(200).json({message: 'Usuário não encontrado.'})
         }else{
 
-            res.status(404).json({ message: 'Compra com o ID ' + codUser + ' não encontrada.' })
+            console.log('Usuário não encontrado.')
+            res.status(404).json({message: 'Usuário não encontrado.'})
         }
     }catch(err){
 
-        console.error('Erro ao buscar o produto!', err)
-        res.status(500).json({message: 'Erro ao buscar o produto!', err})
+        console.error('Erro ao encontrar usuário por nome: ', err)
+        res.status(500)
     }
 }
 
 
 
 
-module.exports = { cadastrar, listar, apagar, atualizar, consultar }
+module.exports = { cadastrar, listar, apagar, atualizar, consultarNome }
 

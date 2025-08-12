@@ -2,9 +2,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
+    "expess": "^0.0.1-security",
     "express": "^5.1.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.14.2",
+    "mysql2": "^3.14.3",
     "sequelize": "^6.37.7"
   },
   "name": "back",

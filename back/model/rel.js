@@ -15,7 +15,7 @@ Compra.belongsTo(Produto, {
 })
 
 Usuario.hasMany(Compra, {
-    foreignkey: 'usuarios_id',
+    foreignkey: 'usuario_id',
     as: 'usuariosCompra',
     onDelete: 'CASCADE'
 })
@@ -26,4 +26,4 @@ Compra.belongsTo(Usuario, {
     allowNull:false
 })
 
-module.exports = { Compra, Produto, Usuario }
+module.exports = { Compra, Produto, Usuario}
