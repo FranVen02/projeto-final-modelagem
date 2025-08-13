@@ -9,14 +9,13 @@ btnAtualizar.addEventListener('click', (e) => {
     let buyDate = document.getElementById('buyDate').value
     let unitPrice = document.getElementById('unitPrice').value
     let appliedDiscount = document.getElementById('appliedDiscount').value
-    let payment = document.getElementById("payment").value
-    let status = appliedDiscount - (appliedDiscount * (payment / 100))
+    let payment = document.getElementById('payment').value
+    let status = document.getElementById('status').value
 
     const finalPrice = ((unitPrice * quantity) - (unitPrice * quantity * (appliedDiscount/100))).toFixed(2)
 
     let usuario_id = document.getElementById('usuario_id').value
     let produto_id = document.getElementById('produto_id').value
-    
 
      const valores = {
         quantity: quantity,
@@ -24,6 +23,7 @@ btnAtualizar.addEventListener('click', (e) => {
         unitPrice: unitPrice,
         appliedDiscount: appliedDiscount,
         payment: payment,
+        status: status,
         finalPrice: finalPrice,
         usuario_id: usuario_id,
         produto_id: produto_id
@@ -44,20 +44,21 @@ btnAtualizar.addEventListener('click', (e) => {
             res.innerHTML =
             `
             <table border='1' cellpadding='8'>
-                <tr>
-                    <td>${dados.quantity}</td>
-                    <td>${dados.buyDate}</td>
-                    <td>${dados.unitPrice}</td>
-                    <td>${dados.appliedDiscount}</td>
-                    <td>${dados.finalPrice}</td>
-                    <td>${dados.payment}</td>
-                    <td>${dados.status}</td>
+                <tr>j
+                    <td>Quantidade: ${dados.quantity}</td>
+                    <td>Data de compra: ${dados.buyDate}</td>
+                    <td>Preço unitário: ${dados.unitPrice}</td>
+                    <td>Disconto aplicado: ${dados.appliedDiscount}</td>
+                    <td>Preço final: ${dados.finalPrice}</td>
+                    <td>Forma de pagamento: ${dados.payment}</td>
+                    <td>Status de compra: ${dados.status}</td>
                     <td>Chave de usuário: ${dados.usuario_id}</td>
                     <td>Chave de produto: ${dados.produto_id}</td>
                 </tr>
             </table>
             `
         }else{
+
             res.innerHTML = 'Dados inválidos.';
             console.log('Dados inválidos.')
         }
@@ -65,6 +66,6 @@ btnAtualizar.addEventListener('click', (e) => {
     .catch((err) =>{
         
         res.innerHTML = 'Erro ao atualizar a compra:' + err
-        console.error('Erro ao atualizar a comrpa:', err)
+        console.error('Erro ao atualizar a compra:', err)
     })
 })
