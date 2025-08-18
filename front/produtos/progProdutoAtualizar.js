@@ -4,7 +4,7 @@ let btnAtualizar = document.getElementById('btnAtualizar')
 btnAtualizar.addEventListener('click', (e) => {
     e.preventDefault()
 
-    let id = document.getElementById('codProd').value
+    let codProd = document.getElementById('codProd').value
     let title = document.getElementById('title').value
     let description = document.getElementById('description').value
     let category = document.getElementById('category').value
@@ -27,7 +27,7 @@ btnAtualizar.addEventListener('click', (e) => {
         thumbnail: thumbnail
     };
 
-    fetch(`http://localhost:3000/produto/${id}`, {
+    fetch(`http://localhost:3000/produto/${codProd}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

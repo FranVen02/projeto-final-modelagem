@@ -28,15 +28,15 @@ app.put('/compra/:id', compraController.atualizar)
 
 app.post('/produto', produtoController.cadastrar)
 app.get('/produto', produtoController.listar)
-app.delete('/produto/:id', produtoController.apagar)
-app.put('/produto/:id', produtoController.atualizar)
-app.get('/produto', produtoController.consultar)
+app.delete('/produto/:codProd', produtoController.apagar)
+app.put('/produto/:codProd', produtoController.atualizar)
+app.get('/produto/:codProd', produtoController.consultarId)
 
 app.post('/usuario', usuarioController.cadastrar)
 app.get('/usuario', usuarioController.listar)
 app.delete('/usuario/:id', usuarioController.apagar)
 app.put('/usuario/:id', usuarioController.atualizar)
-app.get('/usuario/firstName/:firstName', usuarioController.consultarNome)
+app.get('/usuario/:firstName', usuarioController.consultarNome)
 
 app.get('/', (req, res) =>{
 

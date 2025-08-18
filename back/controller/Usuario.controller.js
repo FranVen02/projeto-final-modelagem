@@ -31,7 +31,6 @@ const listar = async (req, res) =>{
 const apagar = async (req, res) =>{
 
     const codUser = req.params.id
-
     try{
 
         const dados = await Usuario.findByPk(codUser)
@@ -83,8 +82,8 @@ const consultarNome = async (req, res) =>{
         const dados = await Usuario.findOne({where: {firstName: firstName}})
         if(dados){
 
-            console.log('Usuário não encontrado.')
-            res.status(200).json({message: 'Usuário não encontrado.'})
+            console.log(dados)
+            res.status(200).json(dados)
         }else{
 
             console.log('Usuário não encontrado.')

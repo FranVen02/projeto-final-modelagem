@@ -4,9 +4,9 @@ let btnApagar = document.getElementById('btnApagar')
 btnApagar.addEventListener('click', (e) =>{
     e.preventDefault()
 
-    let id = document.getElementById('codProd').value
+    let codProd = document.getElementById('codProd').value
 
-    fetch(`http://localhost:3000/produto/${id}`, {
+    fetch(`http://localhost:3000/produto/${codProd}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

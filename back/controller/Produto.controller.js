@@ -30,7 +30,7 @@ const listar = async (req, res) =>{
 
 const apagar = async (req, res) =>{
 
-    const codProd = req.params.id
+    const codProd = req.params.codProd
 
     try{
 
@@ -53,7 +53,7 @@ const apagar = async (req, res) =>{
 
 const atualizar = async (req, res) =>{
 
-    const codProd = req.params.id
+    const codProd = req.params.codProd
     const valores = req.body
 
     try{
@@ -74,25 +74,27 @@ const atualizar = async (req, res) =>{
     }
 }
 
-const consultar = async (req, res) => {
+const consultarId = async (req, res) =>{
 
-    const codProd = req.params.id
+    const codProd = req.params.codProd
     try{
 
-        const produto = await Produto.findByPk(codProd)
-        if(produto){
+        const dados = await Produto.findOne({where: {codProd: codProd}})
+        if(dados){
 
-            res.status(200).json(produto)
+            console.log(dados)
+            res.status(200).json(dados)
         }else{
 
-            res.status(404).json({ message: 'Compra com o ID ' + codProd + ' não encontrada.' })
+            console.log('Produto não encontrado.')
+            res.status(404).json({message: 'Produto não encontrado.'})
         }
     }catch(err){
 
-        console.error('Erro ao buscar o produto!', err)
-        res.status(500).json({message: 'Erro ao buscar o produto!', err})
+        console.error('Erro ao encontrar produto por código de registro: ', err)
+        res.status(500)
     }
 }
 
-module.exports = { cadastrar, listar, apagar, atualizar, consultar }
+module.exports = { cadastrar, listar, apagar, atualizar, consultarId }
 

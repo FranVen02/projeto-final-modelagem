@@ -6,13 +6,14 @@ btnConsultar.addEventListener('click', (e) =>{
 
     let firstName = document.getElementById('firstName').value
 
-    fetch(`http://localhost:3000/usuario/nome/${firstName}`)
+    fetch(`http://localhost:3000/usuario/${firstName}`)
     .then(resp => resp.json())
     .then(dados =>{
 
         console.log(dados)
         if(dados){
 
+            res.innerHTML = 
             `
             <table border="1" cellpadding="8">
                 <tr>
